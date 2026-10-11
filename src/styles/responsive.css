@@ -43,4 +43,14 @@
   .section-container { padding-inline: 1.15rem; }
   .about-number-card { min-height: 14rem; }
   .photo-card { min-height: 0; }
+
+  .hero-tech-layer { opacity: 0.75; }
+  .orb-one { width: 8rem; height: 8rem; left: 2%; top: 18%; }
+  .orb-two { width: 9rem; height: 9rem; right: 4%; top: 12%; }
+  .orb-three { width: 10rem; height: 10rem; right: 18%; bottom: 10%; }
+  .line-one { width: 11rem; left: 4%; top: 24%; }
+  .line-two { width: 12rem; right: 5%; bottom: 18%; }
+  .chip-one { left: 14%; top: 26%; }
+  .chip-two { right: 18%; top: 32%; }
+  .chip-three { right: 26%; bottom: 15%; }
 }
