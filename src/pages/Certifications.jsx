@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ArrowUpRight, Award, Sparkles } from 'lucide-react';
+import computerNetCertificate from '../assets/Computer_Net_Certificate.png';
+import datacomCourseCompletion from '../assets/HCIA-Datacom V1. Course Completion.png';
 import '../styles/global.css';
 import '../styles/responsive.css';
 import '../styles/certifications.css';
@@ -61,10 +63,15 @@ const Certificates = () => {
   const courseCompletions = [
     {
       id: 1,
-      title: 'Course title to be added',
-      provider: 'Provider to be added',
-      details: 'Completion date to be added · Learning path in progress.',
-      status: 'Pending',
+      title: 'HCIA-Datacom V1.0 Course',
+      provider: 'Huawei ICT Academy',
+      details: 'Issued on 2026-10-11 · Course completion certificate.',
+      status: 'Completed',
+      issueDate: '2026-10-11',
+      certificateCode: 'EBG20261011046564',
+      courseName: 'Computer Networks Experiment',
+      image: computerNetCertificate,
+      alternateImage: datacomCourseCompletion,
     },
     {
       id: 2,
@@ -161,13 +168,42 @@ const Certificates = () => {
                         <span className="status-pill muted">{course.status}</span>
                       </div>
 
+                      {course.id === 1 && course.image ? (
+                        <div className="certificate-image-frame">
+                          <img src={course.image} alt="Computer Networks Certificate" className="certificate-image-preview" />
+                        </div>
+                      ) : null}
+
                       <div className="card-copy">
                         <h3 className="card-title">{course.title}</h3>
                         <p className="card-subtext">{course.provider}</p>
                         <p className="card-status">{course.details}</p>
                       </div>
 
-                      <span className="card-link disabled">Certificate link pending</span>
+                      {course.id === 1 ? (
+                        <div className="card-links">
+                          <a
+                            href={course.image}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="card-link view-button"
+                          >
+                            <span>View Certificate</span>
+                            <ArrowUpRight size={14} />
+                          </a>
+                          <a
+                            href={course.alternateImage}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="card-link view-button"
+                          >
+                            <span>View Completion</span>
+                            <ArrowUpRight size={14} />
+                          </a>
+                        </div>
+                      ) : (
+                        <span className="card-link disabled">Certificate link pending</span>
+                      )}
                     </article>
                   ))}
                 </div>
