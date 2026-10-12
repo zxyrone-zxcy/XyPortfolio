@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import ScrollAtmosphere from "./components/ScrollAtmosphere";
 import Home from "./pages/Home";
 import Experience from "./pages/Experiences";
@@ -30,7 +29,6 @@ function RouteContent() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/blog" element={<Blog />} />
         </Routes>
-        <Footer />
       </div>
   );
 }

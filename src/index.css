@@ -631,34 +631,67 @@ body {
 
 .project-section-fixed {
   min-height: 100vh;
-  padding: 7.5rem 0 5rem;
+  padding: 7.5rem 0 4rem;
 }
-.projects-label {
-  margin: 0 0 1rem;
-  color: #438cff;
-}
-.projects-panel {
-  min-height: 4.2rem;
+.portfolio-section-header {
   display: flex;
-  align-items: center;
-  padding: 1rem 1.6rem;
-  border-radius: .6rem;
-  background: rgba(15, 23, 42, .78);
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.4rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(177, 205, 255, .18);
 }
-.projects-panel .note-copy {
+.portfolio-section-heading {
+  display: grid;
+  gap: .45rem;
+  min-width: 0;
+}
+.portfolio-section-kicker {
+  margin: 0;
+  color: #a9c8ff;
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.portfolio-section-title {
+  margin: 0;
+  color: #f0f6ff;
+  font: 700 3rem/1.05 "Fraunces", Georgia, serif;
+}
+.portfolio-section-description {
+  max-width: 34rem;
   margin: 0;
   color: #d3def4;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
-.projects-carousel-wrap { position: relative; margin-top: 1.5rem; }
-.projects-carousel-controls {
+.pubmat-section {
+  padding: 2.25rem 0 5rem;
+  border-top: 1px solid rgba(177, 205, 255, .12);
+}
+.pubmat-instagram-carousel {
+  position: relative;
+  min-height: 32rem;
+  padding: 0.5rem 0 0;
+}
+.carousel-controls {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
   gap: .55rem;
-  margin-bottom: .8rem;
+  margin-bottom: .75rem;
 }
-.projects-carousel-controls button {
+.carousel-position {
+  color: #9eb5d7;
+  font-size: .78rem;
+  font-variant-numeric: tabular-nums;
+}
+.carousel-button-group {
+  display: flex;
+  gap: .55rem;
+}
+.carousel-button-group button {
   display: grid;
   width: 2.65rem;
   aspect-ratio: 1;
@@ -670,21 +703,161 @@ body {
   cursor: pointer;
   transition: color 200ms ease, border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
 }
-.projects-carousel-controls button:hover,
-.projects-carousel-controls button:focus-visible {
+.carousel-button-group button:hover,
+.carousel-button-group button:focus-visible {
   color: #fff;
   border-color: rgba(133, 188, 255, .72);
   background: rgba(49, 91, 145, .42);
   box-shadow: 0 0 1.2rem rgba(78, 160, 255, .28);
 }
-.projects-carousel-controls button:focus-visible { outline: 2px solid #78adff; outline-offset: 3px; }
+.carousel-button-group button:focus-visible {
+  outline: 2px solid #78adff;
+  outline-offset: 3px;
+}
+.pubmat-social-stack {
+  position: relative;
+  height: 31rem;
+  overflow: hidden;
+  perspective: 1200px;
+  touch-action: pan-y;
+}
+.social-post-card {
+  position: absolute;
+  top: 0.4rem;
+  left: 50%;
+  display: flex;
+  width: min(28rem, 76vw);
+  height: 30rem;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: .85rem;
+  background: #f5f0ea;
+  box-shadow: 0 1.4rem 2.6rem rgba(22, 23, 29, 0.22);
+  opacity: var(--social-opacity);
+  transform: translateX(calc(-50% + var(--social-x))) translateY(var(--social-y)) rotate(var(--social-rotation)) scale(var(--social-scale));
+  transition: transform 650ms cubic-bezier(.2, .8, .2, 1), opacity 520ms ease, box-shadow 260ms ease, border-color 260ms ease;
+}
+.social-post-card.is-active {
+  opacity: 1;
+  box-shadow: 0 1.8rem 3rem rgba(22, 23, 29, 0.28);
+}
+.social-post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem 0.7rem;
+  background: rgba(255,255,255,0.8);
+  border-bottom: 1px solid rgba(30, 42, 56, 0.06);
+}
+.social-user-group {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.social-avatar {
+  display: inline-block;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.95);
+}
+.social-user-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.social-user-name {
+  color: #1f2430;
+  font-size: .8rem;
+  font-weight: 800;
+}
+.social-user-meta small {
+  color: #6b7789;
+  font-size: .6rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.social-more-button {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #1f2430;
+  cursor: pointer;
+}
+.social-post-media {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  padding: 0.7rem 0.7rem 0.6rem;
+  background: linear-gradient(180deg, rgba(247, 245, 240, .88), rgba(233, 228, 220, .82));
+}
+.social-main-image {
+  position: absolute;
+  left: 50%;
+  top: 0.7rem;
+  width: calc(100% - 1.4rem);
+  height: calc(100% - 1.4rem);
+  transform: translateX(-50%);
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.12);
+}
+.social-main-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.social-post-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .85rem 1rem .2rem;
+  color: #1d2430;
+  background: rgba(255,255,255,0.34);
+}
+.social-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.social-like { color: #ff3b6b; }
+.social-comment { color: #1d2430; }
+.social-share { color: #2b3642; }
+.social-caption {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  color: #243142;
+  font-size: .8rem;
+  line-height: 1.5;
+  background: rgba(255,255,255,0.2);
+}
+.social-caption strong {
+  color: #101922;
+  font-weight: 800;
+}
+.projects-carousel-wrap { position: relative; margin-top: 1.5rem; }
 .project-stack {
   position: relative;
-  height: 24rem;
+  height: 25.5rem;
   margin-inline: auto;
   overflow: hidden;
   perspective: 1100px;
   transform-style: preserve-3d;
+  touch-action: pan-y;
 }
 .project-stack .stack-card {
   position: absolute;
@@ -692,15 +865,15 @@ body {
   left: 50%;
   isolation: isolate;
   display: flex;
-  width: clamp(13rem, 22vw, 17rem);
-  height: 21rem;
+  width: clamp(14rem, 23vw, 18.5rem);
+  height: 22.5rem;
   min-width: 0;
   flex-direction: column;
   gap: .9rem;
   padding: .7rem;
   overflow: hidden;
   border: 1px solid rgba(204, 224, 255, .38);
-  border-radius: 1rem;
+  border-radius: .85rem;
   background: linear-gradient(145deg, rgba(128, 157, 190, .22), rgba(23, 31, 49, .84) 66%);
   box-shadow: 0 1.1rem 2.4rem rgba(3, 8, 18, .38), inset 0 1px 0 rgba(255, 255, 255, .18);
   backdrop-filter: blur(16px);
@@ -803,16 +976,76 @@ body {
   cursor: pointer;
 }
 
+@media (max-width: 780px) {
+  .portfolio-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .85rem;
+  }
+  .pubmat-showcase {
+    min-height: 22rem;
+  }
+  .pubmat-filmstrip {
+    width: 5.8rem;
+    min-width: 5.8rem;
+  }
+  .film-slot {
+    height: 3.8rem;
+  }
+  .poster-frame-main {
+    left: 10%;
+    right: 4%;
+  }
+  .poster-bottom-bars {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 640px) {
   .project-section-fixed { padding-top: 7rem; }
-  .project-stack { height: 21rem; }
-  .project-stack .stack-card { width: min(70vw, 15rem); height: 18rem; }
-  .projects-carousel-controls { margin-bottom: .25rem; }
+  .project-stack { height: 23rem; }
+  .project-stack .stack-card { width: min(74vw, 16rem); height: 19.25rem; }
+  .carousel-controls { margin-bottom: .25rem; }
+  .pubmat-showcase {
+    flex-direction: column;
+    min-height: 32rem;
+    padding: 1rem 0.9rem 0.9rem;
+  }
+  .pubmat-filmstrip {
+    width: 100%;
+    min-width: auto;
+    height: 6.2rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+  .film-roll {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.7rem 1rem;
+    animation: none;
+  }
+  .film-roll::before,
+  .film-roll::after {
+    display: none;
+  }
+  .film-slot {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+  }
+  .pubmat-poster-scene {
+    min-height: 20rem;
+    margin-left: 0;
+    margin-top: 0.75rem;
+  }
+  .poster-frame-side {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .stack-card,
-  .projects-carousel-controls button { transition: none; }
+  .carousel-button-group button { transition: none; }
 }
 
 .experience-strength-card h3 {
