@@ -7,7 +7,7 @@ import paraBangPhoto from '../assets/NaParaBang.png';
 import '../styles/global.css';
 import '../styles/responsive.css';
 
-const roles = ['Pubmat Designer', 'Junior Developer', 'Database Specialist'];
+const roles = ['Pubmat Designer @AWSSBG-JRU', 'Junior Developer', 'Database Specialist'];
 const technologies = [
   { name: 'Java', Icon: Coffee, style: 'technology-java' },
   { name: 'Vite', Icon: Zap, style: 'technology-vite' },
