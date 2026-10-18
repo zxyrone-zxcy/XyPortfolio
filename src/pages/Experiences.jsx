@@ -110,7 +110,7 @@ export default function Experience() {
               </div>
               <ul className="experience-duties">
                 <li>Graduated with High Honors.</li>
-                <li>Placed 3rd in the Sci-Tek Experiment in Grade 11.</li>
+                <li>Placed 3rd in the Sci-Tok Experiment in Grade 11.</li>
                 <li>Earned Best STEM Research Paper in Grade 12.</li>
               </ul>
             </article>

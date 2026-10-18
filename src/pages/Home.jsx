@@ -3,7 +3,7 @@ import { ArrowDown, Facebook, Instagram, Linkedin, Code2, Coffee, Zap, Atom, Dat
 import profilePhoto from '../assets/1x1 Picture.jpg';
 import myPhotoshoot from '../assets/MyPhotoshoot.jpg';
 import heroPhoto from '../assets/hero.png';
-import paraBangPhoto from '../assets/NaParaBang.png';
+import meMyself from '../assets/MeMyself.jpg';
 import '../styles/global.css';
 import '../styles/responsive.css';
 
@@ -193,7 +193,7 @@ const Home = () => {
             </div>
 
             <p className="dedication-footer">
-              Lastly, Thank you for my special someone, you made me feel determined.
+              Lastly, thanks to all people besides me, Without them I wouldn't have made it this far.
             </p>
           </div>
 
@@ -202,7 +202,7 @@ const Home = () => {
               <img src={heroPhoto} alt="Xyrone Edmund Zamudio professional shoot" className="profile-img" />
             </div>
             <div className="photo-card photo-card-secondary">
-              <img src={paraBangPhoto} alt="Xyrone at a group learning session" className="profile-img" />
+              <img src={meMyself} alt="Xyrone at a group learning session" className="profile-img" />
             </div>
           </div>
         </section>
