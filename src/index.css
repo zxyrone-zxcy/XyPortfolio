@@ -603,12 +603,6 @@ body {
   object-fit: cover;
 }
 
-.experience-strength-photo a {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
 .experience-strength-photo-placeholder {
   width: 100%;
   height: 100%;

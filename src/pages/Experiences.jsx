@@ -149,9 +149,7 @@ export default function Experience() {
               >
                 <div className="experience-strength-photo">
                   {imageSrc ? (
-                    <a href={imageSrc} target="_blank" rel="noreferrer" aria-label={`Open ${title} photo`}>
-                      <img src={imageSrc} alt={`${title} photo`} />
-                    </a>
+                    <img src={imageSrc} alt={`${title} photo`} />
                   ) : (
                     <div className="experience-strength-photo-placeholder" aria-label={`${title} photo frame`}>
                       <Image size={22} aria-hidden="true" />

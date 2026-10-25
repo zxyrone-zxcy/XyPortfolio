@@ -38,6 +38,18 @@
   .hero-avatar-button { width: 110px; height: 110px; }
   .hero-name { font-size: clamp(2rem, 10vw, 2.6rem); line-height: 1.08; }
   .hero-description { font-size: 0.96rem; }
+  .hero-action-row { gap: 0.55rem; }
+  .hero-action-row .scroll-indicator {
+    gap: 0.45rem;
+    padding-inline: 0.65rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+  .hero-action-row .hero-cv-link {
+    gap: 0.35rem;
+    padding-inline: 0.7rem;
+    font-size: 0.85rem;
+  }
   .hero-actions { align-items: stretch; flex-direction: column; width: min(100%, 19rem); margin-inline: auto; }
   .hero-actions a { justify-content: center; }
   .section-container { padding-inline: 1.15rem; }

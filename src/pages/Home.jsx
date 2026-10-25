@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowDown, Facebook, Instagram, Linkedin, Code2, Coffee, Zap, Atom, Database, Leaf, Braces } from 'lucide-react';
+import { ArrowDown, Download, Facebook, Instagram, Linkedin, Code2, Coffee, Zap, Atom, Database, Leaf, Braces } from 'lucide-react';
 import profilePhoto from '../assets/1x1 Picture.jpg';
 import myPhotoshoot from '../assets/MyPhotoshoot.jpg';
 import heroPhoto from '../assets/hero.png';
 import meMyself from '../assets/MeMyself.jpg';
+import cvPdf from '../assets/Zamudio,Xyrone Edmund_CV.pdf';
 import '../styles/global.css';
 import '../styles/responsive.css';
 
@@ -106,9 +107,7 @@ const Home = () => {
               <div className="hero-text-block">
                 <p className="hero-subtitle">SOFTWARE · DATA · SYSTEMS</p>
 
-                <h1 className="hero-name">
-                  Xyrone Edmund Zamudio
-                </h1>
+                <h1 className="hero-name">Xyrone Edmund Zamudio</h1>
 
                 <div className="role-container">
                   <h2 className={`hero-role ${isRoleFading ? 'fade-out' : 'fade-in'}`}>
@@ -122,12 +121,18 @@ const Home = () => {
               I build thoughtful, digital systems and turn data into useful decisions—one clear, considered solution at a time.
             </p>
 
-            <a href="#approach" className="scroll-indicator" aria-label="Scroll to explore section">
-              <span>SCROLL TO EXPLORE</span>
-              <span className="scroll-arrow-wrap">
-                <ArrowDown size={14} className="bounce-icon" />
-              </span>
-            </a>
+            <div className="hero-action-row">
+              <a href="#approach" className="scroll-indicator" aria-label="Scroll to explore section">
+                <span>SCROLL TO EXPLORE</span>
+                <span className="scroll-arrow-wrap">
+                  <ArrowDown size={14} className="bounce-icon" />
+                </span>
+              </a>
+              <a className="hero-cv-link" href={cvPdf} target="_blank" rel="noopener noreferrer">
+                <Download size={17} aria-hidden="true" />
+                <span>View CV</span>
+              </a>
+            </div>
           </div>
         </section>
 
