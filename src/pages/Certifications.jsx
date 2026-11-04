@@ -187,6 +187,7 @@ const Certificates = () => {
                             target="_blank"
                             rel="noreferrer"
                             className="card-link view-button"
+                            tabIndex={isDuplicate ? -1 : undefined}
                           >
                             <span>View Certificate</span>
                             <ArrowUpRight size={14} />
@@ -196,6 +197,7 @@ const Certificates = () => {
                             target="_blank"
                             rel="noreferrer"
                             className="card-link view-button"
+                            tabIndex={isDuplicate ? -1 : undefined}
                           >
                             <span>View Completion</span>
                             <ArrowUpRight size={14} />

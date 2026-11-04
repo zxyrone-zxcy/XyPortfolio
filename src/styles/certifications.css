@@ -456,6 +456,11 @@
   }
 }
 
+.cert-page .cards-marquee:hover .cards-track,
+.cert-page .cards-marquee:focus-within .cards-track {
+  animation-play-state: paused;
+}
+
 @keyframes certification-marquee {
   to { transform: translateX(-50%); }
 }
@@ -504,7 +509,19 @@
 
 @media (prefers-reduced-motion: reduce) {
   .cert-page .cards-track {
+    width: 100%;
     animation: none;
     transform: none;
+  }
+
+  .cert-page .cards-set:first-child {
+    width: 100%;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    padding-right: 0;
+  }
+
+  .cert-page .cards-set[aria-hidden="true"] {
+    display: none;
   }
 }
