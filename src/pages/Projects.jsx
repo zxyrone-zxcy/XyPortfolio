@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink, MoreHorizontal, X, ZoomIn } from 'lucide-react';
 import '../styles/steam-shelf.css';
 import signWiseImage from '../assets/SignWiseASL.png';
-import simpleLoginImage from '../assets/simple-log-in-sys.png';
+import simpleLoginImage from '../assets/simple-login-sys.png';
 import mockupLoginImage from '../assets/MockUpLogInDesign.png';
 import AWSMLCReviewer from '../assets/AWS-AIML-REVEIWER.png';
 import profilePhoto from '../assets/1x1 Picture.jpg';
