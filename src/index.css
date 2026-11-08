@@ -1471,18 +1471,6 @@ body {
   .menu-wrap { display: none; }
 }
 
-/* Page transition: curtain wipe */
-.page-curtain {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  transform: translateX(-100%);
-  background: linear-gradient(135deg, #0c101b 0%, #151b2e 100%);
-  border-right: 3px solid #82a4ff;
-  box-shadow: 12px 0 40px rgba(130, 164, 255, 0.25);
-}
-
 /* Experiences: education / experience columns */
 .exp-columns {
   display: grid;

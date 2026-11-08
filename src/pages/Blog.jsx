@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import StarField from '../components/StarField';
 import '../styles/blog.css';
 
 const posts = [
@@ -44,6 +45,7 @@ export default function Blog() {
   }, []);
   return (
     <main className="blog-page page-width" ref={pageRef}>
+      <StarField />
       <header className="blog-heading">
         <h1 className="section-title">Blogs, in progress.</h1>
         <p className="section-subtitle">A journal about learning and growth.</p>

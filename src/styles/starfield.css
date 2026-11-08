@@ -1,0 +1,37 @@
+/* Animated starfield backdrop (Blog page). Remove <StarField /> from Blog.jsx to revert. */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+.starfield-layer,
+.starfield-layer::after {
+  width: var(--star-size);
+  height: var(--star-size);
+  background: transparent;
+  box-shadow: var(--stars);
+}
+
+.starfield-layer {
+  opacity: 0.6; /* faded 40% so stars don't compete with text */
+  animation: starfield-rise var(--star-duration) linear infinite;
+}
+
+.starfield-layer::after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+}
+
+@keyframes starfield-rise {
+  from { transform: translateY(0); }
+  to { transform: translateY(-2000px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starfield-layer { animation: none; }
+}

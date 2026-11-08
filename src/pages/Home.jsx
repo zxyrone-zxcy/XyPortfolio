@@ -6,6 +6,7 @@ import myPhotoshoot from '../assets/MyPhotoshoot.jpg';
 import heroPhoto from '../assets/hero.png';
 import meMyself from '../assets/MeMyself.jpg';
 import cvPdf from '../assets/Zamudio,Xyrone Edmund_CV.pdf';
+import SpotifyPlayer from '../components/SpotifyPlayer';
 import '../styles/global.css';
 import '../styles/responsive.css';
 
@@ -251,6 +252,12 @@ const Home = () => {
               <img src={meMyself} alt="Xyrone at a group learning session" className="profile-img" />
             </div>
           </div>
+        </section>
+
+        {/* Music Section */}
+        <section id="music" className="section-container reveal-on-scroll">
+          <h2 className="section-title">What I listen to.</h2>
+          <SpotifyPlayer />
         </section>
 
       </main>
