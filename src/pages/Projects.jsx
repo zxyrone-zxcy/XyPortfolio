@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, MoreHorizontal, X } from 'lucide-react';
 import signWiseImage from '../assets/SignWiseASL.png';
 import simpleLoginImage from '../assets/simple-log-in-system.png';
 import mockupLoginImage from '../assets/MockUpLogInDesign.png';
+import AWSMLCReviewer from '../assets/AWS-AIML-REVEIWER.png';
 import profilePhoto from '../assets/1x1 Picture.jpg';
 import PUBMAT1 from '../assets/AwardeeToSpeirs.png';
 import PUBMAT2 from '../assets/FindOutWhatIf.png';
@@ -20,6 +21,7 @@ const Projects = () => {
     { id: 1, title: 'SignWise: American Sign Language', description: 'A project to learn American Sign Language for People.', image: signWiseImage, url: 'https://github.com/zxyrone-zxcy/signwiseasl' },
     { id: 2, title: 'Simple Log-In System', description: 'A group project to create a reliable security system.', image: simpleLoginImage, url: 'https://github.com/zxyrone-zxcy/login-system-grupo-main' },
     { id: 3, title: 'Log-In Mock Up', description: 'A design prototype for log-in interface.', image: mockupLoginImage, imageFit: 'contain', url: null, zoomable: true },
+    { id: 4, title: 'AWS-AI/ML Reviewer', description: 'A website reviewer for the people taking MLC-CO1 or ME1-CO2(beta).', image: AWSMLCReviewer, imageFit: 'contain', url: 'https://aws-reviewer-aimlengr.vercel.app/'},
   ];
 
   const socialDesigns = [
