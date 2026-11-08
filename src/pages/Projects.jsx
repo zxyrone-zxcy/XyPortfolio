@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, MoreHorizontal, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ExternalLink, MoreHorizontal, X, ZoomIn } from 'lucide-react';
+import '../styles/steam-shelf.css';
 import signWiseImage from '../assets/SignWiseASL.png';
 import simpleLoginImage from '../assets/simple-log-in-system.png';
 import mockupLoginImage from '../assets/MockUpLogInDesign.png';
@@ -9,9 +10,11 @@ import PUBMAT1 from '../assets/AwardeeToSpeirs.png';
 import PUBMAT2 from '../assets/FindOutWhatIf.png';
 import PUBMAT3 from '../assets/Fireside.png';
 import PUBMAT4 from '../assets/TechContributors.png';
+import PUBMAT5 from '../assets/RecruitmentPUBMAT.png';
 
 const Projects = () => {
-  const [selectedIndex, setSelectedIndex] = useState(3);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const cardRefs = useRef([]);
   const [selectedSocialIndex, setSelectedSocialIndex] = useState(0);
   const [isMockupZoomOpen, setIsMockupZoomOpen] = useState(false);
   const swipeStartRef = useRef(null);
@@ -53,6 +56,13 @@ const Projects = () => {
       mainImage: PUBMAT4,
       caption: 'AWS- Student Builder Group Contributors.',
     },
+    {
+      id: 5,
+      username: '@zx_xyrone',
+      location: 'Creative portfolio',
+      mainImage: PUBMAT5,
+      caption: 'Recruitment pubmat design for AWS - SBG JRU.',
+    },
   ];
 
   useEffect(() => {
@@ -79,14 +89,16 @@ const Projects = () => {
     }
 
     if (project.url) {
-      window.location.assign(project.url);
+      window.open(project.url, '_blank', 'noopener,noreferrer');
     } else if (project.zoomable) {
       setIsMockupZoomOpen(true);
     }
   };
 
   const moveSelection = (direction) => {
-    setSelectedIndex((currentIndex) => (currentIndex + direction + projects.length) % projects.length);
+    const next = (selectedIndex + direction + projects.length) % projects.length;
+    setSelectedIndex(next);
+    cardRefs.current[next]?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   };
 
   const moveSocialSelection = (direction) => {
@@ -138,53 +150,37 @@ const Projects = () => {
             </p>
           </header>
 
-          <div className="projects-carousel-wrap">
-            <div className="carousel-controls projects-carousel-controls" aria-label="Project carousel controls">
-              <span className="carousel-position" aria-live="polite" aria-atomic="true">
-                {String((selectedIndex % projects.length) + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
-              </span>
-              <div className="carousel-button-group">
+          <div className="steam-shelf-wrap">
+            <div className="steam-shelf-header">
+              <h2 className="steam-shelf-title">Recent Projects</h2>
+              <span className="steam-shelf-line" aria-hidden="true" />
+              <div className="steam-shelf-arrows">
                 <button type="button" aria-label="Previous project" onClick={() => moveSelection(-1)}>
-                  <ChevronLeft size={19} aria-hidden="true" />
+                  <ChevronLeft size={22} aria-hidden="true" />
                 </button>
                 <button type="button" aria-label="Next project" onClick={() => moveSelection(1)}>
-                  <ChevronRight size={19} aria-hidden="true" />
+                  <ChevronRight size={22} aria-hidden="true" />
                 </button>
               </div>
             </div>
-            <div
-              className="project-stack"
-              role="region"
-              aria-roledescription="carousel"
-              aria-label="Projects"
-              onPointerDown={startCarouselSwipe}
-              onPointerUp={(event) => endCarouselSwipe(event, setSelectedIndex, projects.length)}
-              onPointerCancel={cancelCarouselSwipe}
-              onClickCapture={suppressSwipeClick}
-            >
+            <p className="steam-shelf-sub">Selected work</p>
+
+            <div className="steam-shelf" role="list" aria-label="Projects">
               {projects.map((project, index) => {
-                let relativePosition = (index - selectedIndex + projects.length) % projects.length;
-                if (relativePosition > Math.floor(projects.length / 2)) {
-                  relativePosition -= projects.length;
-                }
-                const distance = Math.abs(relativePosition);
+                const isActive = index === selectedIndex % projects.length;
+                const actionLabel = project.url ? 'View project' : project.zoomable ? 'View mockup' : null;
+                const ActionIcon = project.url ? ExternalLink : ZoomIn;
 
                 return (
                   <article
                     key={project.id}
-                    className={`canva-card stack-card ${distance === 0 ? 'is-active' : ''}`}
-                    style={{
-                      '--card-x': `${relativePosition * 9.2}rem`,
-                      '--card-y': `${distance * 8}px`,
-                      '--card-rotation': `${relativePosition * -8}deg`,
-                      '--card-scale': Math.max(.58, 1 - distance * .12),
-                      '--card-opacity': Math.max(.34, 1 - distance * .2),
-                      zIndex: projects.length - distance,
-                    }}
+                    role="listitem"
+                    ref={(node) => { cardRefs.current[index] = node; }}
+                    className={`steam-card ${isActive ? 'is-active' : ''}`}
                     tabIndex={0}
-                    role="button"
-                    aria-pressed={distance === 0}
-                    aria-label={`Select ${project.title}`}
+                    aria-label={project.title}
+                    onMouseEnter={() => setSelectedIndex(index)}
+                    onFocus={() => setSelectedIndex(index)}
                     onClick={() => handleCardClick(index)}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
@@ -193,12 +189,19 @@ const Projects = () => {
                       }
                     }}
                   >
-                    <span className="project-card-art" aria-hidden="true">
-                      <img className={project.imageFit === 'contain' ? 'is-contained' : ''} src={project.image} alt="" />
-                    </span>
-                    <div className="project-card-copy">
-                      <h2>{project.title}</h2>
-                      <p>{project.description}</p>
+                    <img className="steam-card-image" src={project.image} alt="" />
+                    <div className="steam-card-shade" aria-hidden="true" />
+                    <h3 className="steam-card-name">{project.title}</h3>
+
+                    <div className="steam-card-info">
+                      <h3 className="steam-card-info-title">{project.title}</h3>
+                      <p className="steam-card-info-text">{project.description}</p>
+                      {actionLabel && (
+                        <span className="steam-card-action">
+                          <ActionIcon size={15} aria-hidden="true" />
+                          {actionLabel}
+                        </span>
+                      )}
                     </div>
                   </article>
                 );
