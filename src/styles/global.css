@@ -309,7 +309,24 @@
   letter-spacing: -0.03em;
   line-height: 1.04;
   text-shadow: 0 0 28px rgba(130, 164, 255, 0.18);
-  animation: clarifyName 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 0.06em;
+  height: 0.9em;
+  margin: 0 -0.06em 0 0.02em;
+  vertical-align: -0.08em;
+  background: #82a4ff;
+  animation: typewriterBlink 0.8s steps(1) infinite;
+}
+
+.typewriter-rest {
+  visibility: hidden;
+}
+
+@keyframes typewriterBlink {
+  50% { opacity: 0; }
 }
 
 .hero-action-row {
@@ -556,29 +573,48 @@
 
 .social-links {
   display: flex;
-  gap: 0.85rem;
+  flex-wrap: wrap;
+  gap: 1rem 1.75rem;
   margin-top: 1.5rem;
 }
 
 .social-links a {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-areas: "icon label" "icon sub";
   align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  color: #dfeeff;
-  background: rgba(122, 174, 255, 0.1);
-  border: 1px solid rgba(160, 182, 255, 0.24);
-  border-radius: 50%;
+  column-gap: 0.7rem;
+  padding: 0.2rem 0;
+  color: #ffffff;
+  background: none;
+  border: 0;
   text-decoration: none;
-  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.social-links a svg {
+  grid-area: icon;
+}
+
+.social-links .social-label { grid-area: label; }
+.social-links .social-sublabel { grid-area: sub; }
+
+.social-label {
+  font-weight: 700;
+}
+
+.social-sublabel {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.78rem;
 }
 
 .social-links a:hover {
-  color: #ffffff;
-  background: rgba(96, 165, 250, 0.24);
-  border-color: rgba(160, 182, 255, 0.55);
   transform: translateY(-2px);
+  opacity: 0.8;
 }
 
 .social-links a:focus-visible {
@@ -678,5 +714,28 @@
 
   .hero-name {
     animation: none;
+  }
+}
+.hero-social {
+  text-align: left;
+  margin-top: 1.5rem;
+}
+
+.hero-social-label {
+  margin: 0;
+  color: #8fb7ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-social .social-links {
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .hero-social .social-links {
+    gap: 0.9rem 1.4rem;
   }
 }

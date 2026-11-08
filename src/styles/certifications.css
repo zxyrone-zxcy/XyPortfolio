@@ -456,11 +456,6 @@
   }
 }
 
-.cert-page .cards-marquee:hover .cards-track,
-.cert-page .cards-marquee:focus-within .cards-track {
-  animation-play-state: paused;
-}
-
 @keyframes certification-marquee {
   to { transform: translateX(-50%); }
 }

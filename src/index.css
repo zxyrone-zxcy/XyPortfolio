@@ -1470,3 +1470,105 @@ body {
   .nav-links { display: flex; }
   .menu-wrap { display: none; }
 }
+
+/* Page transition: curtain wipe */
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  transform: translateX(-100%);
+  background: linear-gradient(135deg, #0c101b 0%, #151b2e 100%);
+  border-right: 3px solid #82a4ff;
+  box-shadow: 12px 0 40px rgba(130, 164, 255, 0.25);
+}
+
+/* Experiences: education / experience columns */
+.exp-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem 4rem;
+  margin-top: 2.5rem;
+}
+
+.exp-col-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 2rem;
+  color: #f2f6ff;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.exp-col-education .exp-col-heading svg { color: #2fb36d; }
+.exp-col-experience .exp-col-heading svg { color: #3b82f6; }
+
+.exp-list {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 1.4rem;
+  list-style: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.exp-item {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.exp-item:last-child { padding-bottom: 0; }
+
+.exp-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.4rem - 6px);
+  top: 0.3rem;
+  width: 11px;
+  height: 11px;
+  background: #5b6472;
+}
+
+.exp-col-education .exp-item.is-current::before { background: #1f8a54; }
+.exp-col-experience .exp-item.is-current::before { background: #2563eb; }
+
+.exp-item-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.exp-item-head h4 {
+  margin: 0;
+  color: #f2f6ff;
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.exp-item-date {
+  flex-shrink: 0;
+  color: #98a4ba;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+}
+
+.exp-item-org {
+  margin: 0.25rem 0 0;
+  color: #98a4ba;
+  font-size: 0.9rem;
+}
+
+.exp-item-notes {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  color: #aab6ca;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.exp-item-notes li + li { margin-top: 0.2rem; }
+
+@media (max-width: 860px) {
+  .exp-columns { grid-template-columns: minmax(0, 1fr); }
+}

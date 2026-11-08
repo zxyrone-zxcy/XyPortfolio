@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { animate } from 'motion/react';
 import { ArrowDown, Download, Facebook, Instagram, Linkedin, Code2, Coffee, Zap, Atom, Database, Leaf, Braces } from 'lucide-react';
 import profilePhoto from '../assets/1x1 Picture.jpg';
 import myPhotoshoot from '../assets/MyPhotoshoot.jpg';
@@ -19,13 +20,37 @@ const technologies = [
   { name: 'Python', Icon: Braces, style: 'technology-python' },
 ];
 
+const fullName = 'Xyrone Edmund Zamudio';
+
+const socialLinks = [
+  { label: 'Facebook', subLabel: 'zxcyro', href: 'https://www.facebook.com/zxcyro', Icon: Facebook },
+  { label: 'LinkedIn', subLabel: 'in/xyronezamudio1018', href: 'https://www.linkedin.com/in/xyronezamudio1018/', Icon: Linkedin },
+  { label: 'Instagram', subLabel: '@zxcyrone_', href: 'https://www.instagram.com/zxcyrone_/', Icon: Instagram },
+];
+
 const Home = () => {
+  const [typedCount, setTypedCount] = useState(0);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isRoleFading, setIsRoleFading] = useState(false);
   const [isProfileFlipping, setIsProfileFlipping] = useState(false);
   const [isFrontFaceVisible, setIsFrontFaceVisible] = useState(true);
   const [flipDirection, setFlipDirection] = useState(1);
   const containerRef = useRef(null);
+
+  // Typewriter animation for the hero name
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setTypedCount(fullName.length);
+      return undefined;
+    }
+    const controls = animate(0, fullName.length, {
+      duration: 1.8,
+      delay: 0.3,
+      ease: 'linear',
+      onUpdate: (value) => setTypedCount(Math.round(value)),
+    });
+    return () => controls.stop();
+  }, []);
 
   // Interchangeable Role Text Animation
   useEffect(() => {
@@ -107,7 +132,11 @@ const Home = () => {
               <div className="hero-text-block">
                 <p className="hero-subtitle">SOFTWARE · DATA · SYSTEMS</p>
 
-                <h1 className="hero-name">Xyrone Edmund Zamudio</h1>
+                <h1 className="hero-name" aria-label={fullName}>
+                  <span aria-hidden="true">{fullName.slice(0, typedCount)}</span>
+                  <span className="typewriter-cursor" aria-hidden="true" />
+                  <span className="typewriter-rest" aria-hidden="true">{fullName.slice(typedCount)}</span>
+                </h1>
 
                 <div className="role-container">
                   <h2 className={`hero-role ${isRoleFading ? 'fade-out' : 'fade-in'}`}>
@@ -120,6 +149,18 @@ const Home = () => {
             <p className="hero-description">
               I build thoughtful, digital systems and turn data into useful decisions—one clear, considered solution at a time.
             </p>
+
+            <div className="hero-social">
+              <div className="social-links" aria-label="Social media links">
+                {socialLinks.map(({ label, subLabel, href, Icon }) => (
+                  <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}>
+                    <Icon size={20} aria-hidden="true" />
+                    <span className="social-label">{label}</span>
+                    <small className="social-sublabel">{subLabel}</small>
+                  </a>
+                ))}
+              </div>
+            </div>
 
             <div className="hero-action-row">
               <a href="#approach" className="scroll-indicator" aria-label="Scroll to explore section">
@@ -209,23 +250,6 @@ const Home = () => {
             <div className="photo-card photo-card-secondary">
               <img src={meMyself} alt="Xyrone at a group learning session" className="profile-img" />
             </div>
-          </div>
-        </section>
-
-        {/* Social Links Section */}
-        <section id="social-links" className="section-container reveal-on-scroll">
-          <p className="section-badge">CONNECT</p>
-          <h2 className="section-title">Find me online.</h2>
-          <div className="social-links" aria-label="Social media links">
-            <a href="https://www.facebook.com/zxcyro" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook">
-              <Facebook size={20} aria-hidden="true" />
-            </a>
-            <a href="https://www.linkedin.com/in/xyronezamudio1018/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
-              <Linkedin size={20} aria-hidden="true" />
-            </a>
-            <a href="https://www.instagram.com/zxcyrone_/" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram">
-              <Instagram size={20} aria-hidden="true" />
-            </a>
           </div>
         </section>
 
