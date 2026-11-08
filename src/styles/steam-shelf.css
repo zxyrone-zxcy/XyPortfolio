@@ -155,7 +155,8 @@
   color: #fff;
   font-size: 0.8rem;
   font-weight: 700;
-  background: linear-gradient(180deg, #5ec96b, #2f9e44);
+  background: linear-gradient(135deg, #5b89ff, #8b6cf0);
+  box-shadow: 0 4px 14px rgba(91, 137, 255, 0.35);
   border-radius: 3px;
 }
 
