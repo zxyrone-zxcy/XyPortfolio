@@ -694,7 +694,8 @@
 .technology-oracle svg { color: #f80000; }
 .technology-mongodb svg { color: #00ed64; }
 .technology-laravel svg { color: #ff2d20; }
-.technology-python svg { color: #ffd43b; }
+.technology-python svg { color: #3776ab; }
+.technology-supabase svg { color: #3ecf8e; }
 
 @keyframes technology-marquee-right {
   from { transform: translateX(-50%); }

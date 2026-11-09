@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { animate } from 'motion/react';
-import { ArrowDown, Download, Facebook, Instagram, Linkedin, Code2, Coffee, Zap, Atom, Database, Leaf, Braces } from 'lucide-react';
+import { ArrowDown, Download, Facebook, Instagram, Linkedin, Code2 } from 'lucide-react';
+import { FaJava } from 'react-icons/fa';
+import { SiVite, SiReact, SiMongodb, SiLaravel, SiPython, SiSupabase } from 'react-icons/si';
 import profilePhoto from '../assets/1x1 Picture.jpg';
 import myPhotoshoot from '../assets/MyPhotoshoot.jpg';
 import heroPhoto from '../assets/hero.png';
@@ -11,20 +13,28 @@ import '../styles/global.css';
 import '../styles/responsive.css';
 
 const roles = ['Pubmat Designer @AWSSBG-JRU', 'Junior Developer', 'Database Specialist'];
+// react-icons has no Oracle glyph, so this draws the Oracle "O" ring mark.
+const OracleIcon = ({ size = 19, ...props }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" {...props}>
+    <rect x="2" y="6.5" width="20" height="11" rx="5.5" />
+  </svg>
+);
+
 const technologies = [
-  { name: 'Java', Icon: Coffee, style: 'technology-java' },
-  { name: 'Vite', Icon: Zap, style: 'technology-vite' },
-  { name: 'React', Icon: Atom, style: 'technology-react' },
-  { name: 'Oracle Database', Icon: Database, style: 'technology-oracle' },
-  { name: 'MongoDB', Icon: Leaf, style: 'technology-mongodb' },
-  { name: 'Laravel', Icon: Braces, style: 'technology-laravel' },
-  { name: 'Python', Icon: Braces, style: 'technology-python' },
+  { name: 'Java', Icon: FaJava, style: 'technology-java' },
+  { name: 'Vite', Icon: SiVite, style: 'technology-vite' },
+  { name: 'React', Icon: SiReact, style: 'technology-react' },
+  { name: 'Oracle Database', Icon: OracleIcon, style: 'technology-oracle' },
+  { name: 'MongoDB', Icon: SiMongodb, style: 'technology-mongodb' },
+  { name: 'Laravel', Icon: SiLaravel, style: 'technology-laravel' },
+  { name: 'Python', Icon: SiPython, style: 'technology-python' },
+  { name: 'Supabase', Icon: SiSupabase, style: 'technology-supabase' },
 ];
 
 const fullName = 'Xyrone Edmund Zamudio';
 
 const socialLinks = [
-  { label: 'Facebook', subLabel: 'zxcyro', href: 'https://www.facebook.com/zxcyro', Icon: Facebook },
+  { label: 'Facebook', subLabel: 'xyrone', href: 'https://www.facebook.com/zxcy.1018', Icon: Facebook },
   { label: 'LinkedIn', subLabel: 'in/xyronezamudio1018', href: 'https://www.linkedin.com/in/xyronezamudio1018/', Icon: Linkedin },
   { label: 'Instagram', subLabel: '@zxcyrone_', href: 'https://www.instagram.com/zxcyrone_/', Icon: Instagram },
 ];
