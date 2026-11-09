@@ -26,7 +26,7 @@ const columns = [
       {
         title: "Nagpayong High School",
         org: "Academic milestones",
-        date: "2023–Present",
+        date: "2022–2025",
         notes: [
           "Graduated with High Honors.",
           "Placed 3rd in the Sci-Tok Experiment in Grade 11.",
