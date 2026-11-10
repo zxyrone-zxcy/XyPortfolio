@@ -158,7 +158,7 @@ const Home = () => {
             </div>
 
             <p className="hero-description">
-              I build thoughtful, digital systems and turn data into useful decisions—one clear, considered solution at a time.
+              I build thoughtful digital systems and turn data into useful decisions, and I'm sharpening that craft by working with AI to design, build, and ship faster and smarter.
             </p>
 
             <div className="hero-social">

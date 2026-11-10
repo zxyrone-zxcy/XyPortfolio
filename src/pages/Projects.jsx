@@ -6,6 +6,7 @@ import simpleLoginImage from '../assets/simple-login-sys.png';
 import mockupLoginImage from '../assets/MockUpLogInDesign.png';
 import AWSMLCReviewer from '../assets/AWS-AIML-REVEIWER.png';
 import underemploymentImage from '../assets/DatasetsUnderemployment.png';
+import tarantechImage from '../assets/trantech.png';
 import profilePhoto from '../assets/1x1 Picture.jpg';
 import PUBMAT1 from '../assets/AwardeeToSpeirs.png';
 import PUBMAT2 from '../assets/FindOutWhatIf.png';
@@ -27,6 +28,7 @@ const Projects = () => {
     { id: 3, title: 'Log-In Mock Up', description: 'A design prototype for log-in interface.', image: mockupLoginImage, imageFit: 'contain', url: null, zoomable: true },
     { id: 4, title: 'AWS-AI/ML Reviewer', description: 'A website reviewer for the people taking MLC-CO1 or ME1-CO2(beta).', image: AWSMLCReviewer, imageFit: 'contain', url: 'https://aws-reviewer-aimlengr.vercel.app/'},
     { id: 5, title: 'PH Underemployment Dashboard', description: 'A dashboard visualizing underemployment datasets in the Philippines.', image: underemploymentImage, url: 'https://ph-underemployment-dashboard.vercel.app/' },
+    { id: 6, title: 'TaranTech E-Portfolio', description: 'An e-portfolio website showcasing TaranTech.', image: tarantechImage, url: 'https://tarantech-eportfolio.vercel.app/' },
   ];
 
   const socialDesigns = [
