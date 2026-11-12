@@ -52,7 +52,6 @@
   }
   .hero-actions { align-items: stretch; flex-direction: column; width: min(100%, 19rem); margin-inline: auto; }
   .hero-actions a { justify-content: center; }
-  .section-container { padding-inline: 1.15rem; }
   .about-number-card { min-height: 14rem; }
   .photo-card { min-height: 0; }
 

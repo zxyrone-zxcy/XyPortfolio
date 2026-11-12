@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
-import { ArrowDown, Briefcase, GraduationCap } from "lucide-react";
+import { Briefcase, GraduationCap } from "lucide-react";
+import SectionHeader from "../components/SectionHeader";
 
 const reveal = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -75,45 +76,17 @@ const columns = [
 export default function Experience() {
   return (
     <main>
-      <section id="top" className="hero experience-hero" aria-labelledby="page-title">
-        <div className="experience-tech-bg" aria-hidden="true">
-          <span className="experience-orbit experience-orbit-one" />
-          <span className="experience-orbit experience-orbit-two" />
-          <span className="experience-circuit experience-circuit-one" />
-          <span className="experience-circuit experience-circuit-two" />
-          <span className="experience-node experience-node-one" />
-          <span className="experience-node experience-node-two" />
-          <span className="experience-node experience-node-three" />
-        </div>
-        <motion.div className="page-width hero-content" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }}>
-          <h1 id="page-title" className="hero-title text-[#f2f6ff]">
-            Experiences
-          </h1>
-          <p className="hero-copy">
-            A focused view of growth through software development, data analysis, and practical problem solving.
-          </p>
-          <a className="hero-action" href="#path">
-            <span>Explore the path</span>
-            <ArrowDown size={17} />
-          </a>
-        </motion.div>
-      </section>
-
-      <section className="section border-y border-[var(--line)] bg-gradient-to-r from-[#101521] to-[#0c101b]">
-        <motion.div className="page-width" {...reveal()}>
-          <p className="section-label">An evolving practice</p>
-          <h2 className="section-title text-[#f2f6ff]">Designed, built, and delivered.</h2>
-          <div className="w-16 h-[2px] my-5 bg-gradient-to-r from-[#70adff] to-[#aa8cff]"></div>
-          <p className="text-[#b1bed3] font-serif text-2xl max-w-3xl leading-snug">
-            A timeline of my work in creative media, academic projects, and hands-on roles.
-          </p>
-        </motion.div>
-      </section>
-
-      <section id="path" className="section">
+      <section id="path" className="section-container page-intro">
         <div className="page-width">
-          <motion.p className="section-label" {...reveal()}>Career &amp; academic milestones</motion.p>
-          <motion.h2 className="section-title text-[#f2f6ff]" {...reveal(0.1)}>My milestones and journey to my career.</motion.h2>
+          <motion.div {...reveal()}>
+            <SectionHeader
+              as="h1"
+              index="01"
+              label="Experience"
+              title="Milestones and the journey so far."
+              description="A timeline of my work in creative media, academic projects, and hands-on roles."
+            />
+          </motion.div>
 
           <div className="exp-columns">
             {columns.map(({ key, title, Icon, items }, colIndex) => (

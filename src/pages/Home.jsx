@@ -3,12 +3,13 @@ import { animate } from 'motion/react';
 import { ArrowDown, Download, Facebook, Instagram, Linkedin, Code2 } from 'lucide-react';
 import { FaJava } from 'react-icons/fa';
 import { SiVite, SiReact, SiMongodb, SiLaravel, SiPython, SiSupabase } from 'react-icons/si';
-import profilePhoto from '../assets/1x1 Picture.jpg';
-import myPhotoshoot from '../assets/MyPhotoshoot.jpg';
-import heroPhoto from '../assets/hero.png';
-import meMyself from '../assets/MeMyself.jpg';
-import cvPdf from '../assets/Zamudio,Xyrone Edmund_CV.pdf';
+import profilePhoto from '../assets/shared/1x1 Picture.jpg';
+import myPhotoshoot from '../assets/home/MyPhotoshoot.jpg';
+import heroPhoto from '../assets/home/hero.png';
+import meMyself from '../assets/home/MeMyself.jpg';
+import cvPdf from '../assets/home/Zamudio,Xyrone Edmund_CV.pdf';
 import SpotifyPlayer from '../components/SpotifyPlayer';
+import SectionHeader from '../components/SectionHeader';
 import '../styles/global.css';
 import '../styles/responsive.css';
 
@@ -196,8 +197,7 @@ const Home = () => {
         {/* About Me Section */}
         <section id="about" className="section-container reveal-on-scroll">
           <div className="about-text-content">
-            <p className="section-badge">ABOUT ME</p>
-            <h2 className="section-title">A little more about myself.</h2>
+            <SectionHeader index="01" label="About" title="A little more about myself." />
             <p className="section-paragraph">
               Hi, I’m Xy. I’m a BSIT student and a junior web developer. I’m pretty knowledgeable when it comes to databases, and I also do video editing using Adobe Premiere Pro. I’m still learning and improving, but I really enjoy building things and working with technology.
             </p>
@@ -229,8 +229,7 @@ const Home = () => {
         {/* My Dedication Section */}
         <section className="section-container grid-2 reveal-on-scroll">
           <div className="dedication-content">
-            <p className="section-badge">PROFESSIONAL PROFILE</p>
-            <h2 className="section-title">Hello, I am Xyrone.</h2>
+            <SectionHeader index="02" label="Background" title="Hello, I am Xyrone." />
 
             <div className="dedication-list">
               <div className="dedication-item">
@@ -266,7 +265,7 @@ const Home = () => {
 
         {/* Music Section */}
         <section id="music" className="section-container reveal-on-scroll">
-          <h2 className="section-title">What I listen to.</h2>
+          <SectionHeader index="03" label="Music" title="What I listen to." />
           <SpotifyPlayer />
         </section>
 

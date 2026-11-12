@@ -1,18 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink, MoreHorizontal, X, ZoomIn } from 'lucide-react';
 import '../styles/steam-shelf.css';
-import signWiseImage from '../assets/SignWiseASL.png';
-import simpleLoginImage from '../assets/simple-login-sys.png';
-import mockupLoginImage from '../assets/MockUpLogInDesign.png';
-import AWSMLCReviewer from '../assets/AWS-AIML-REVEIWER.png';
-import underemploymentImage from '../assets/DatasetsUnderemployment.png';
-import tarantechImage from '../assets/trantech.png';
-import profilePhoto from '../assets/1x1 Picture.jpg';
-import PUBMAT1 from '../assets/AwardeeToSpeirs.png';
-import PUBMAT2 from '../assets/FindOutWhatIf.png';
-import PUBMAT3 from '../assets/Fireside.png';
-import PUBMAT4 from '../assets/TechContributors.png';
-import PUBMAT5 from '../assets/RecruitmentPUBMAT.png';
+import SectionHeader from '../components/SectionHeader';
+import signWiseImage from '../assets/projects/SignWiseASL.png';
+import simpleLoginImage from '../assets/projects/simple-login-sys.png';
+import mockupLoginImage from '../assets/projects/MockUpLogInDesign.png';
+import AWSMLCReviewer from '../assets/projects/AWS-AIML-REVEIWER.png';
+import underemploymentImage from '../assets/projects/DatasetsUnderemployment.png';
+import tarantechImage from '../assets/projects/trantech.png';
+import profilePhoto from '../assets/shared/1x1 Picture.jpg';
+import PUBMAT1 from '../assets/projects/pubmats/AwardeeToSpeirs.png';
+import PUBMAT2 from '../assets/projects/pubmats/FindOutWhatIf.png';
+import PUBMAT3 from '../assets/projects/pubmats/Fireside.png';
+import PUBMAT4 from '../assets/projects/pubmats/TechContributors.png';
+import PUBMAT5 from '../assets/projects/pubmats/RecruitmentPUBMAT.png';
 
 const Projects = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -144,15 +145,14 @@ const Projects = () => {
     <main className="projects-page">
       <section id="projects" className="section project-section-fixed" aria-labelledby="projects-heading">
         <div className="page-width">
-          <header className="portfolio-section-header projects-header">
-            <div className="portfolio-section-heading">
-              <p className="portfolio-section-kicker">Selected Work / 01</p>
-              <h1 id="projects-heading" className="portfolio-section-title">Projects</h1>
-            </div>
-            <p className="portfolio-section-description">
-              Software projects and interface explorations built around useful tools and clear interaction.
-            </p>
-          </header>
+          <SectionHeader
+            as="h1"
+            id="projects-heading"
+            index="01"
+            label="Projects"
+            title="Selected work."
+            description="Software projects and interface explorations built around useful tools and clear interaction."
+          />
 
           <div className="steam-shelf-wrap">
             <div className="steam-shelf-header">
@@ -167,7 +167,6 @@ const Projects = () => {
                 </button>
               </div>
             </div>
-            <p className="steam-shelf-sub">Selected work</p>
 
             <div className="steam-shelf" role="list" aria-label="Projects">
               {projects.map((project, index) => {
@@ -217,15 +216,13 @@ const Projects = () => {
 
       <section className="pubmat-section" aria-labelledby="pubmat-heading">
         <div className="page-width">
-          <header className="portfolio-section-header pubmat-header">
-            <div className="portfolio-section-heading">
-              <p className="portfolio-section-kicker">Visual Design / 02</p>
-              <h2 id="pubmat-heading" className="portfolio-section-title">Pubmat Design</h2>
-            </div>
-            <p className="portfolio-section-description">
-              Pubmat designs created for AWS - SBG JRU, including event promotions and community features.
-            </p>
-          </header>
+          <SectionHeader
+            id="pubmat-heading"
+            index="02"
+            label="Pubmat design"
+            title="Visual design for AWS SBG–JRU."
+            description="Pubmat designs for event promotions and community features."
+          />
 
           <div className="pubmat-instagram-carousel" aria-label="Pubmat social media carousel">
             <div className="carousel-controls social-carousel-controls" aria-label="Pubmat carousel controls">

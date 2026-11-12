@@ -516,21 +516,6 @@ body {
   scroll-margin-top: 5rem;
 }
 
-.section-label {
-  color: #8fb7ff;
-  font-size: 0.74rem;
-  text-transform: uppercase;
-  letter-spacing: .15em;
-  font-weight: 700;
-}
-
-.section-title {
-  margin: .8rem 0 0;
-  font-family: "Fraunces", serif;
-  font-size: clamp(2.15rem, 4vw, 3.7rem);
-  line-height: 1.04;
-  letter-spacing: -0.045em;
-}
 
 .about-grid, .milestone-grid, .contact-grid {
   display: grid;
@@ -624,44 +609,10 @@ body {
 }
 
 .project-section-fixed {
-  min-height: 100vh;
-  padding: 7.5rem 0 4rem;
-}
-.portfolio-section-header {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-bottom: 1.4rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(177, 205, 255, .18);
-}
-.portfolio-section-heading {
-  display: grid;
-  gap: .45rem;
-  min-width: 0;
-}
-.portfolio-section-kicker {
-  margin: 0;
-  color: #a9c8ff;
-  font-size: .76rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-.portfolio-section-title {
-  margin: 0;
-  color: #f0f6ff;
-  font: 700 3rem/1.05 "Fraunces", Georgia, serif;
-}
-.portfolio-section-description {
-  max-width: 34rem;
-  margin: 0;
-  color: #d3def4;
-  font-size: 1rem;
-  line-height: 1.65;
+  padding: var(--page-top) 0 0;
 }
 .pubmat-section {
-  padding: 2.25rem 0 5rem;
+  padding: var(--section-gap) 0 5rem;
   border-top: 1px solid rgba(177, 205, 255, .12);
 }
 .pubmat-instagram-carousel {
@@ -971,11 +922,6 @@ body {
 }
 
 @media (max-width: 780px) {
-  .portfolio-section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: .85rem;
-  }
   .pubmat-showcase {
     min-height: 22rem;
   }
@@ -1193,31 +1139,74 @@ body {
   border-top: 1px solid var(--line);
 }
 
-/* Page spacing and reading rhythm */
+/* ============================================================
+   Page rhythm + the shared heading pattern (SectionHeader.jsx).
+   Every page: first header is an h1 at --page-top from the top;
+   later sections are h2s separated by --section-gap.
+   ============================================================ */
+:root {
+  --page-top: clamp(7.5rem, 12vh, 9rem);
+  --section-gap: clamp(3.5rem, 8vw, 6rem);
+}
 .main-content { padding-top: 6.25rem; }
+/* Always sits inside .page-width, so no extra side padding (keeps left edges aligned across pages). */
 .section-container {
-  width: min(100%, 1120px);
+  width: 100%;
   margin-inline: auto;
-  padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 4vw, 2.5rem);
+  padding: var(--section-gap) 0;
   scroll-margin-top: 6rem;
 }
+.page-intro { padding-top: var(--page-top); }
 .hero-section { scroll-margin-top: 5rem; }
-.hero-description, .section-paragraph, .section-subtitle { line-height: 1.75; }
-.section-title { max-width: 18ch; }
-.section-subtitle { max-width: 42rem; color: var(--muted); }
+.hero-description, .section-paragraph { line-height: 1.75; }
+
+.section-header {
+  max-width: 46rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.section-title {
+  max-width: 20ch;
+  margin: .9rem 0 0;
+  color: #f2f6ff;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(2.1rem, 4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+.section-title.is-page-title { font-size: clamp(2.6rem, 6vw, 4.25rem); }
+.section-description {
+  max-width: 40rem;
+  margin: 1rem 0 0;
+  color: #a8b6ce;
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+/* Section label: "01 —— About". Plain editorial index, no pill/icon. */
 .section-badge {
   display: inline-flex;
   align-items: center;
-  gap: .5rem;
-  padding: .5rem .7rem;
-  border-radius: 999px;
-  background: rgba(110, 168, 255, 0.08);
-  border: 1px solid rgba(110, 168, 255, 0.18);
-  color: #9cc1ff;
-  font-size: 0.72rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  font-weight: 700;
+  gap: .75rem;
+  margin: 0;
+  color: #a8b6ce;
+  font-size: .9rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+}
+.section-badge-num {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: .78rem;
+  color: #8fb7ff;
+}
+.section-badge-num::after {
+  content: "";
+  display: inline-block;
+  width: 2rem;
+  height: 1px;
+  margin-left: .75rem;
+  vertical-align: middle;
+  background: currentColor;
+  opacity: .5;
 }
 .about-number-card, .photo-card, .canva-card {
   border: 1px solid var(--line);
@@ -1271,28 +1260,6 @@ body {
 }
 .photo-replace-badge { position: absolute; inset: auto 1rem 1rem auto; }
 .page-shell { min-height: 100vh; }
-.cert-page {
-  padding-top: 3rem;
-  padding-bottom: 2.5rem;
-}
-.section-header {
-  max-width: 44rem;
-  margin-bottom: 2rem;
-}
-.eyebrow-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: .9rem;
-}
-.section-description {
-  margin: 1rem 0 0;
-  color: #a8b6ce;
-  line-height: 1.8;
-  font-size: 1.02rem;
-}
-.cert-title {
-  max-width: 10ch;
-}
 .cards-marquee { width: 100%; overflow: hidden; }
 .cards-track {
   display: flex;
@@ -1413,13 +1380,9 @@ body {
 @media (max-width: 640px) {
   .cards-set { grid-auto-columns: minmax(15rem, calc(100vw - 4rem)); }
   .cert-card { min-height: unset; }
-  .cert-title { max-width: 12ch; }
 }
 
-.blog-page { min-height: calc(100vh - 8rem); padding-block: clamp(8.5rem, 16vh, 11rem) 5rem; }
-.blog-heading { max-width: 48rem; margin-bottom: clamp(2.5rem, 6vw, 4rem); }
-.blog-heading .section-title { font-size: clamp(2.8rem, 7vw, 5.4rem); }
-.blog-heading .section-subtitle { font-size: 1.05rem; }
+.blog-page { min-height: calc(100vh - 8rem); padding-block: var(--page-top) 5rem; }
 .blog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .blog-card { min-height: 18rem; display: flex; flex-direction: column; padding: clamp(1.2rem, 2.5vw, 1.8rem); border: 1px solid var(--line); border-radius: 1rem; background: linear-gradient(145deg, rgba(25,32,48,.82), rgba(14,19,30,.8)); }
 .blog-card-top { display: flex; justify-content: space-between; align-items: center; gap: .6rem; color: #8fb7ff; font-size: .72rem; }

@@ -1,28 +1,6 @@
 .blog-page {
-  width: min(100% - 2rem, 1120px);
   min-height: calc(100vh - 8rem);
-  margin-inline: auto;
-  padding-block: 9rem 5rem;
-}
-
-.blog-heading {
-  max-width: 48rem;
-  margin-bottom: 3rem;
-}
-
-.blog-heading .section-title {
-  max-width: 12ch;
-  margin: 0;
-  color: #f2f6ff;
-  font: 700 3.6rem/1.08 "Fraunces", Georgia, serif;
-}
-
-.blog-heading .section-subtitle {
-  max-width: 42rem;
-  margin: 1.1rem 0 0;
-  color: #a8b6ce;
-  font-size: 1.02rem;
-  line-height: 1.75;
+  padding-block: var(--page-top) 5rem;
 }
 
 .blog-grid {
@@ -106,18 +84,6 @@
 }
 
 @media (max-width: 640px) {
-  .blog-page {
-    padding-top: 8rem;
-  }
-
-  .blog-heading {
-    margin-bottom: 2rem;
-  }
-
-  .blog-heading .section-title {
-    font-size: 2.7rem;
-  }
-
   .blog-grid {
     grid-template-columns: 1fr;
   }

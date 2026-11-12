@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import StarField from '../components/StarField';
+import SectionHeader from '../components/SectionHeader';
 import '../styles/blog.css';
 
 const posts = [
@@ -46,10 +47,13 @@ export default function Blog() {
   return (
     <main className="blog-page page-width" ref={pageRef}>
       <StarField />
-      <header className="blog-heading">
-        <h1 className="section-title">Blogs, in progress.</h1>
-        <p className="section-subtitle">A journal about learning and growth.</p>
-      </header>
+      <SectionHeader
+        as="h1"
+        index="01"
+        label="Blog"
+        title="Blogs, in progress."
+        description="A journal about learning and growth."
+      />
       <section className="blog-grid" aria-label="Blog posts">
         {posts.map((post, index) => (
           <article className="blog-card reveal-on-scroll" key={post.title} style={{ transitionDelay: `${index * 100}ms` }}>

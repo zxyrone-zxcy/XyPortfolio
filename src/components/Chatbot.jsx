@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { X, Send } from "lucide-react";
-import happy from "../assets/happy.png";
-import neutral from "../assets/neutral.png";
-import saying from "../assets/saying.gif";
-import thinking from "../assets/thinking.gif";
+import happy from "../assets/chatbot/happy.png";
+import neutral from "../assets/chatbot/neutral.png";
+import saying from "../assets/chatbot/saying.gif";
+import thinking from "../assets/chatbot/thinking.gif";
 import "../styles/chatbot.css";
 
 const FACES = { neutral, happy, thinking, saying };
