@@ -1,6 +1,8 @@
 // Serverless endpoint (Vercel) that proxies chat messages to Gemini.
 // The API key stays on the server: set GEMINI_API_KEY in Vercel env vars / .env.local.
-const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
+import { retrieve, formatContext } from "../knowledge/retrieve.js";
+
+const MODEL =process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 
 const SYSTEM_PROMPT = `You are the friendly assistant on Xyrone Edmund Zamudio's portfolio website.
 Xyrone is an IT student/developer focused on software, data and systems. Their motto: "Building systems with code, uncovering answers with data."
@@ -34,8 +36,15 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Expected a message from the user." });
   }
 
+  // RAG: retrieve site facts relevant to the last two user messages (so follow-ups work).
+  const recentUser = incoming.filter((m) => m?.role === "user" && typeof m.text === "string").slice(-2);
+  const context = formatContext(retrieve(recentUser.map((m) => m.text.slice(0, MAX_CHARS)).join(" "), 5));
+  const system = context
+    ? `${SYSTEM_PROMPT}\n\nSITE FACTS (retrieved for this question). Answer from these when relevant, be specific (names, dates, links), and don't invent details beyond them. If they don't cover the question, say you're not sure and point to the relevant page or the CV:\n\n${context}`
+    : SYSTEM_PROMPT;
+
   const body = JSON.stringify({
-    systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+    systemInstruction: { parts: [{ text: system }] },
     contents,
     generationConfig: { maxOutputTokens: 400, temperature: 0.7 },
   });
