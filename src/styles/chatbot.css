@@ -1,0 +1,122 @@
+.chatbot {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.chatbot-toggle {
+  width: 84px;
+  height: 84px;
+  padding: 0;
+  border: 2px solid rgba(149, 179, 255, 0.55);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 12px 28px rgba(43, 82, 151, 0.4);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.chatbot-toggle:hover { transform: translateY(-2px) scale(1.05); }
+.chatbot-toggle img { width: 100%; height: 100%; object-fit: cover; object-position: 5.5% 0; display: block; image-rendering: pixelated; }
+/* the faces sit left of center in the PNG/thinking art; the talking GIF is already near center */
+.chatbot img.face-saying { object-position: 100% 0; }
+
+.chatbot-panel {
+  width: min(360px, calc(100vw - 2.5rem));
+  height: min(480px, calc(100vh - 7.5rem));
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: chatbot-in 200ms ease-out;
+}
+
+@keyframes chatbot-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+.chatbot-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 0.9rem;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.chatbot-header-face { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; object-position: 5.5% 0; image-rendering: pixelated; }
+.chatbot-header div { flex: 1; display: flex; flex-direction: column; font-size: 0.92rem; }
+.chatbot-header span { color: var(--muted); font-size: 0.78rem; }
+.chatbot-header button {
+  background: none; border: 0; color: var(--muted); cursor: pointer; padding: 0.25rem;
+}
+.chatbot-header button:hover { color: var(--text); }
+
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.chatbot-msg {
+  margin: 0;
+  max-width: 85%;
+  padding: 0.55rem 0.8rem;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.chatbot-msg.assistant { align-self: flex-start; background: var(--surface-2); border: 1px solid var(--line); }
+.chatbot-msg.user { align-self: flex-end; background: var(--blue); color: #08101f; }
+.chatbot-typing { color: var(--muted); letter-spacing: 0.2em; }
+
+.chatbot-form {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.7rem;
+  border-top: 1px solid var(--line);
+}
+.chatbot-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.55rem 0.8rem;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9rem;
+  background: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.chatbot-form input:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+.chatbot-form button {
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  color: #08101f; background: var(--blue);
+  border: 0; border-radius: 10px; cursor: pointer;
+}
+.chatbot-form button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+@media (max-width: 480px) {
+  .chatbot { right: 0.9rem; bottom: 0.9rem; }
+  .chatbot-toggle { width: 72px; height: 72px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chatbot-panel { animation: none; }
+  .chatbot-toggle { transition: none; }
+}

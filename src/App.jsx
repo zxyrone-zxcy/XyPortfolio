@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import ScrollAtmosphere from "./components/ScrollAtmosphere";
+import Chatbot from "./components/Chatbot";
 import Home from "./pages/Home";
 import Experience from "./pages/Experiences";
 import Certifications from "./pages/Certifications";
@@ -34,6 +35,7 @@ function RouteContent() {
           <Route path="/blog" element={<Blog />} />
         </Routes>
       </div>
+      <Chatbot />
     </>
   );
 }
