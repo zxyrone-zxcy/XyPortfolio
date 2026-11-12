@@ -629,7 +629,7 @@
 }
 
 .technology-stack {
-  width: min(100%, 38rem);
+  width: min(100%, 46rem);
   margin-top: 1.5rem;
 }
 
@@ -647,25 +647,43 @@
   color: #8fb7ff;
 }
 
-.technology-marquee {
-  overflow: hidden;
-  width: 100%;
-  mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+/* Grouped stack: a small label column + a wrapping row of chips per group. */
+.technology-groups {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
 }
 
-.technology-marquee-track {
-  display: flex;
-  width: max-content;
-  animation: technology-marquee-right 28s linear infinite;
-  will-change: transform;
+.technology-group {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
 }
 
-.technology-marquee-group {
+.technology-group dt {
+  padding-top: 0.8rem;
+  color: #8fa0bd;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.technology-group dd {
   display: flex;
-  flex: none;
-  align-items: center;
-  gap: 0.75rem;
-  padding-right: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .technology-group {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .technology-group dt {
+    padding-top: 0;
+  }
 }
 
 .technology-item {
@@ -696,29 +714,12 @@
 .technology-laravel svg { color: #ff2d20; }
 .technology-python svg { color: #3776ab; }
 .technology-supabase svg { color: #3ecf8e; }
-
-@keyframes technology-marquee-right {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
-}
+.technology-copilot svg { color: #f0f6fc; }
+.technology-antigravity svg { color: #8ab4f8; }
+.technology-claude svg { color: #d97757; }
+.technology-codex svg { color: #f0f6fc; }
 
 @media (prefers-reduced-motion: reduce) {
-  .technology-marquee-track {
-    width: 100%;
-    animation: none !important;
-    transform: none;
-  }
-
-  .technology-marquee-group:first-child {
-    width: 100%;
-    flex-wrap: wrap;
-    padding-right: 0;
-  }
-
-  .technology-marquee-group[aria-hidden="true"] {
-    display: none;
-  }
-
   .hero-name {
     animation: none;
   }

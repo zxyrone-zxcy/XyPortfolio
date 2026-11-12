@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "motion/react";
 import { Briefcase, GraduationCap } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
+import jruLogo from "../assets/experience/jru-logo.png";
+import nagpayongLogo from "../assets/experience/nagpayong-hs-logo.png";
 
 const reveal = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -19,6 +21,8 @@ const columns = [
       {
         title: "Bachelor of Science in Information Technology",
         org: "Jose Rizal University",
+        logo: jruLogo,
+        logoAlt: "Jose Rizal University seal",
         date: "June 2024–Present",
         notes: [
           "Relevant coursework in Programming, Hardware & Software, Computer Networking, and Project Management.",
@@ -27,6 +31,8 @@ const columns = [
       {
         title: "Nagpayong High School",
         org: "Academic milestones",
+        logo: nagpayongLogo,
+        logoAlt: "Nagpayong High School logo",
         date: "2022–2025",
         notes: [
           "Graduated with High Honors.",
@@ -97,17 +103,22 @@ export default function Experience() {
                 </h3>
                 <ol className="exp-list">
                   {items.map((item, i) => (
-                    <li className={`exp-item${i === 0 ? " is-current" : ""}`} key={item.title}>
-                      <div className="exp-item-head">
-                        <h4>{item.title}</h4>
-                        <time className="exp-item-date">{item.date}</time>
+                    <li className={`exp-item${i === 0 ? " is-current" : ""}${item.logo ? " has-logo" : ""}`} key={item.title}>
+                      {item.logo && (
+                        <img className="exp-item-logo" src={item.logo} alt={item.logoAlt} width="52" height="52" loading="lazy" />
+                      )}
+                      <div className="exp-item-content">
+                        <div className="exp-item-head">
+                          <h4>{item.title}</h4>
+                          <time className="exp-item-date">{item.date}</time>
+                        </div>
+                        <p className="exp-item-org">{item.org}</p>
+                        <ul className="exp-item-notes">
+                          {item.notes.map((note) => (
+                            <li key={note}>{note}</li>
+                          ))}
+                        </ul>
                       </div>
-                      <p className="exp-item-org">{item.org}</p>
-                      <ul className="exp-item-notes">
-                        {item.notes.map((note) => (
-                          <li key={note}>{note}</li>
-                        ))}
-                      </ul>
                     </li>
                   ))}
                 </ol>

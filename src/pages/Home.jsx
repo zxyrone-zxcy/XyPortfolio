@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { animate } from 'motion/react';
-import { ArrowDown, Download, Facebook, Instagram, Linkedin, Code2 } from 'lucide-react';
+import { ArrowDown, Download, Facebook, Instagram, Linkedin, Code2, Orbit } from 'lucide-react';
 import { FaJava } from 'react-icons/fa';
-import { SiVite, SiReact, SiMongodb, SiLaravel, SiPython, SiSupabase } from 'react-icons/si';
+import { SiVite, SiReact, SiMongodb, SiLaravel, SiPython, SiSupabase, SiGithubcopilot, SiClaude } from 'react-icons/si';
+import { TbBrandOpenai } from 'react-icons/tb';
 import profilePhoto from '../assets/shared/1x1 Picture.jpg';
 import myPhotoshoot from '../assets/home/MyPhotoshoot.jpg';
 import heroPhoto from '../assets/home/hero.png';
@@ -21,15 +22,34 @@ const OracleIcon = ({ size = 19, ...props }) => (
   </svg>
 );
 
-const technologies = [
-  { name: 'Java', Icon: FaJava, style: 'technology-java' },
-  { name: 'Vite', Icon: SiVite, style: 'technology-vite' },
-  { name: 'React', Icon: SiReact, style: 'technology-react' },
-  { name: 'Oracle Database', Icon: OracleIcon, style: 'technology-oracle' },
-  { name: 'MongoDB', Icon: SiMongodb, style: 'technology-mongodb' },
-  { name: 'Laravel', Icon: SiLaravel, style: 'technology-laravel' },
-  { name: 'Python', Icon: SiPython, style: 'technology-python' },
-  { name: 'Supabase', Icon: SiSupabase, style: 'technology-supabase' },
+const techGroups = [
+  {
+    label: 'Front end',
+    items: [
+      { name: 'React', Icon: SiReact, style: 'technology-react' },
+      { name: 'Vite', Icon: SiVite, style: 'technology-vite' },
+    ],
+  },
+  {
+    label: 'Back end',
+    items: [
+      { name: 'Java', Icon: FaJava, style: 'technology-java' },
+      { name: 'Python', Icon: SiPython, style: 'technology-python' },
+      { name: 'Laravel', Icon: SiLaravel, style: 'technology-laravel' },
+      { name: 'Oracle Database', Icon: OracleIcon, style: 'technology-oracle' },
+      { name: 'MongoDB', Icon: SiMongodb, style: 'technology-mongodb' },
+      { name: 'Supabase', Icon: SiSupabase, style: 'technology-supabase' },
+    ],
+  },
+  {
+    label: 'Agentic AI tools',
+    items: [
+      { name: 'GitHub Copilot Chat', Icon: SiGithubcopilot, style: 'technology-copilot' },
+      { name: 'Antigravity', Icon: Orbit, style: 'technology-antigravity' },
+      { name: 'Claude', Icon: SiClaude, style: 'technology-claude' },
+      { name: 'Codex', Icon: TbBrandOpenai, style: 'technology-codex' },
+    ],
+  },
 ];
 
 const fullName = 'Xyrone Edmund Zamudio';
@@ -207,20 +227,21 @@ const Home = () => {
                 <Code2 size={18} aria-hidden="true" />
                 <span>Building using:</span>
               </h3>
-              <div className="technology-marquee" role="group" aria-label="Programming languages and tools">
-                <div className="technology-marquee-track">
-                  {[false, true].map((isDuplicate) => (
-                    <div className="technology-marquee-group" key={String(isDuplicate)} aria-hidden={isDuplicate}>
-                      {technologies.map(({ name, Icon, style }) => (
+              <dl className="technology-groups">
+                {techGroups.map(({ label, items }) => (
+                  <div className="technology-group" key={label}>
+                    <dt>{label}</dt>
+                    <dd>
+                      {items.map(({ name, Icon, style }) => (
                         <span className={`technology-item ${style}`} key={name}>
                           <Icon size={19} aria-hidden="true" />
                           <span>{name}</span>
                         </span>
                       ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
 

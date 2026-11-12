@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import StarField from '../components/StarField';
 import SectionHeader from '../components/SectionHeader';
 import '../styles/blog.css';
 
@@ -46,7 +45,6 @@ export default function Blog() {
   }, []);
   return (
     <main className="blog-page page-width" ref={pageRef}>
-      <StarField />
       <SectionHeader
         as="h1"
         index="01"
@@ -54,15 +52,24 @@ export default function Blog() {
         title="Blogs, in progress."
         description="A journal about learning and growth."
       />
-      <section className="blog-grid" aria-label="Blog posts">
+      <ol className="blog-list" aria-label="Blog posts">
         {posts.map((post, index) => (
-          <article className="blog-card reveal-on-scroll" key={post.title} style={{ transitionDelay: `${index * 100}ms` }}>
-            <div className="blog-card-top"><span className="blog-card-category">{post.category}</span></div>
-            <h2>{post.title}</h2>
-            <p>{post.excerpt}</p>
-          </article>
+          <li key={post.title}>
+            <article className="blog-entry reveal-on-scroll">
+              <div className="blog-entry-meta">
+                <span className="blog-entry-num">{String(index + 1).padStart(2, '0')}</span>
+                <span className="blog-entry-category">{post.category}</span>
+              </div>
+              <div className="blog-entry-body">
+                <h2>{post.title}</h2>
+                {post.excerpt.split(/\n\s*\n|\n/).map((para) => para.trim()).filter(Boolean).map((para) => (
+                  <p key={para.slice(0, 32)}>{para}</p>
+                ))}
+              </div>
+            </article>
+          </li>
         ))}
-      </section>
+      </ol>
       <p className="blog-note">More writing will appear here as projects and ideas take shape.</p>
     </main>
   );

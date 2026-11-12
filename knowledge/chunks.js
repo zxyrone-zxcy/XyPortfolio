@@ -21,8 +21,8 @@ export const CHUNKS = [
     id: "skills",
     page: "Home",
     title: "Tech stack and skills",
-    tags: "skills technologies tools languages programming stack frameworks database know use",
-    text: "Technologies on the site: Java, Vite, React, Oracle Database, MongoDB, Laravel, Python and Supabase. He is strongest with databases (Oracle, SQL fundamentals, MongoDB, Supabase), builds web apps with React + Vite, and edits video with Adobe Premiere Pro.",
+    tags: "skills technologies tools languages programming stack frameworks database know use frontend front-end backend back-end ai agentic copilot antigravity claude codex",
+    text: "Tech stack on the site, grouped. Front end: React, Vite. Back end: Java, Python, Laravel, Oracle Database, MongoDB, Supabase. Agentic AI tools he uses: GitHub Copilot Chat, Antigravity, Claude and Codex. He is strongest with databases (Oracle, SQL fundamentals, MongoDB, Supabase), builds web apps with React + Vite, and edits video with Adobe Premiere Pro.",
   },
   {
     id: "math-arduino",
@@ -142,28 +142,28 @@ export const CHUNKS = [
     page: "Certifications",
     title: "CompTIA IT Fundamentals+",
     tags: "certification certificate credential comptia itf fundamentals earned badge credly",
-    text: "CompTIA IT Fundamentals+ (CompTIA), earned. Foundational IT knowledge and troubleshooting concepts. Badge: https://www.credly.com/badges/f92e6647-a29a-40d0-9f2a-55f894224d12/public_url",
+    text: "CompTIA IT Fundamentals+ (CompTIA), earned, issued 2024-12-05, no expiration. Foundational IT knowledge and troubleshooting concepts. Badge: https://www.credly.com/badges/f92e6647-a29a-40d0-9f2a-55f894224d12/public_url",
   },
   {
     id: "cert-cisco-js",
     page: "Certifications",
     title: "Cisco JavaScript Essentials 1 & 2",
     tags: "certification certificate credential cisco javascript js networking academy earned badge credly",
-    text: "Cisco JavaScript Essentials 1 and 2 (Cisco Networking Academy), completed and earned: JavaScript programming fundamentals and core concepts. Essentials 1: https://www.credly.com/badges/f4f58d47-2a54-4cfd-9221-048608479b4d/public_url. Essentials 2: https://www.credly.com/badges/0c94dc1c-8d58-4c70-aec1-7ca91b036e8e/public_url",
+    text: "Cisco JavaScript Essentials 1 and 2 (Cisco Networking Academy), both earned and issued 2026-07-23, no expiration: JavaScript programming fundamentals and core concepts. Essentials 1: https://www.credly.com/badges/f4f58d47-2a54-4cfd-9221-048608479b4d/public_url. Essentials 2: https://www.credly.com/badges/0c94dc1c-8d58-4c70-aec1-7ca91b036e8e/public_url",
   },
   {
     id: "cert-databases",
     page: "Certifications",
     title: "IT Specialist - Databases",
     tags: "certification certificate credential certiport database sql earned badge credly",
-    text: "IT Specialist - Databases (Certiport), earned: database concepts, data management and SQL fundamentals. Badge: https://www.credly.com/badges/284ae140-9ca6-4365-ac18-77f81311a9af/public_url",
+    text: "IT Specialist - Databases (Certiport), earned, issued 2026-05-06, expires 2031-05-06: database concepts, data management and SQL fundamentals. Badge: https://www.credly.com/badges/284ae140-9ca6-4365-ac18-77f81311a9af/public_url",
   },
   {
     id: "cert-huawei",
     page: "Certifications",
     title: "HCIA-Datacom V1.0 course completion (Huawei)",
     tags: "course completion huawei ict academy datacom networking networks certificate 2026",
-    text: "HCIA-Datacom V1.0 Course (Huawei ICT Academy), course completion certificate issued 2026-10-11, covering Computer Networks Experiment. Certificate and completion images are on the Certifications page.",
+    text: "Two Huawei ICT Academy course completion certificates: Computer Networks Experiment (issued 2026-09-09) and HCIA-Datacom V1.0 Course (issued 2026-10-11). Course completions don't expire. Both certificate images are on the Certifications page.",
   },
 
   // ---------- Blog ----------
