@@ -20,7 +20,7 @@ const json = (obj, status = 200, extra = {}) =>
 
 export async function onRequestPost({ request, env }) {
   const key = env.GEMINI_API_KEY;
-  const model = env.GEMINI_MODEL || "gemini-3.8-flash";
+  const model = env.GEMINI_MODEL || "gemini-3.5-flash-lite";
   if (!key) return json({ error: "GEMINI_API_KEY is not configured on the server." }, 500);
 
   let payload;

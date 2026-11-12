@@ -1,6 +1,6 @@
 // Serverless endpoint (Vercel) that proxies chat messages to Gemini.
 // The API key stays on the server: set GEMINI_API_KEY in Vercel env vars / .env.local.
-const MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
+const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 
 const SYSTEM_PROMPT = `You are the friendly assistant on Xyrone Edmund Zamudio's portfolio website.
 Xyrone is an IT student/developer focused on software, data and systems. Their motto: "Building systems with code, uncovering answers with data."
