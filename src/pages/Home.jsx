@@ -10,6 +10,7 @@ import heroPhoto from '../assets/home/hero.png';
 import meMyself from '../assets/home/MeMyself.jpg';
 import cvPdf from '../assets/home/Zamudio,Xyrone Edmund_CV.pdf';
 import SpotifyPlayer from '../components/SpotifyPlayer';
+import Cassette from '../components/Cassette';
 import SectionHeader from '../components/SectionHeader';
 import '../styles/global.css';
 import '../styles/responsive.css';
@@ -287,7 +288,12 @@ const Home = () => {
         {/* Music Section */}
         <section id="music" className="section-container reveal-on-scroll">
           <SectionHeader index="03" label="Music" title="What I listen to." />
-          <SpotifyPlayer />
+          <div className="music-row">
+            <SpotifyPlayer />
+            <div className="music-cassette">
+              <Cassette />
+            </div>
+          </div>
         </section>
 
       </main>

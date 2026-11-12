@@ -9,11 +9,11 @@ import AWSMLCReviewer from '../assets/projects/AWS-AIML-REVEIWER.png';
 import underemploymentImage from '../assets/projects/DatasetsUnderemployment.png';
 import tarantechImage from '../assets/projects/trantech.png';
 import profilePhoto from '../assets/shared/1x1 Picture.jpg';
-import PUBMAT1 from '../assets/projects/pubmats/AwardeeToSpeirs.png';
-import PUBMAT2 from '../assets/projects/pubmats/FindOutWhatIf.png';
-import PUBMAT3 from '../assets/projects/pubmats/Fireside.png';
-import PUBMAT4 from '../assets/projects/pubmats/TechContributors.png';
-import PUBMAT5 from '../assets/projects/pubmats/RecruitmentPUBMAT.png';
+import PUBMAT1 from '../assets/projects/pubmats/AwardeeToSpeirs.jpg';
+import PUBMAT2 from '../assets/projects/pubmats/FindOutWhatIf.jpg';
+import PUBMAT3 from '../assets/projects/pubmats/Fireside.jpg';
+import PUBMAT4 from '../assets/projects/pubmats/TechContributors.jpg';
+import PUBMAT5 from '../assets/projects/pubmats/RecruitmentPUBMAT.jpg';
 
 const Projects = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -22,6 +22,26 @@ const Projects = () => {
   const [isMockupZoomOpen, setIsMockupZoomOpen] = useState(false);
   const swipeStartRef = useRef(null);
   const suppressSwipeClickRef = useRef(false);
+
+  // Pubmat likes: per visitor, saved in their browser (keyed by each design's `id`).
+  const [likedDesigns, setLikedDesigns] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('pubmat-likes')) || [];
+    } catch {
+      return [];
+    }
+  });
+  const toggleLike = (id) => {
+    setLikedDesigns((prev) => {
+      const next = prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id];
+      try {
+        localStorage.setItem('pubmat-likes', JSON.stringify(next));
+      } catch {
+        /* storage blocked: like still works, just isn't remembered */
+      }
+      return next;
+    });
+  };
 
   const projects = [
     { id: 1, title: 'SignWise: American Sign Language', description: 'A project to learn American Sign Language for People.', image: signWiseImage, url: 'https://signwiseasl.vercel.app/' },
@@ -305,7 +325,20 @@ const Projects = () => {
                     </div>
 
                     <div className="social-post-actions" aria-label="Post actions">
-                      <span className="social-action social-like" aria-hidden="true">❤</span>
+                      <button
+                        type="button"
+                        className={`social-action social-like${likedDesigns.includes(design.id) ? ' is-liked' : ''}`}
+                        aria-pressed={likedDesigns.includes(design.id)}
+                        aria-label={likedDesigns.includes(design.id) ? 'Unlike this design' : 'Like this design'}
+                        tabIndex={distance === 0 ? 0 : -1}
+                        onClick={(event) => {
+                          event.stopPropagation(); // liking shouldn't also select/move the card
+                          toggleLike(design.id);
+                        }}
+                        onKeyDown={(event) => event.stopPropagation()}
+                      >
+                        {likedDesigns.includes(design.id) ? '❤' : '♡'}
+                      </button>
                       <span className="social-action social-comment" aria-hidden="true">◌</span>
                       <span className="social-action social-share" aria-hidden="true">↗</span>
                     </div>

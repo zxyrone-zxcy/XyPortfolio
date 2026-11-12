@@ -779,7 +779,32 @@ body {
   font-size: 1.1rem;
   font-weight: 700;
 }
-.social-like { color: #ff3b6b; }
+/* Like button: outline heart until liked, then red with a quick pop. */
+.social-like {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #1d2430;
+  font-family: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+.social-like:hover { color: #ff3b6b; }
+.social-like.is-liked {
+  color: #ff3b6b;
+  animation: social-like-pop 320ms cubic-bezier(.2, .8, .2, 1.4);
+}
+.social-like:focus-visible {
+  outline: 2px solid #78adff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+@keyframes social-like-pop {
+  40% { transform: scale(1.35); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .social-like.is-liked { animation: none; }
+}
 .social-comment { color: #1d2430; }
 .social-share { color: #2b3642; }
 .social-caption {

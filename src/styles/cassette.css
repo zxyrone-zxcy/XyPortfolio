@@ -1,0 +1,303 @@
+/* Cassette tape — from Uiverse.io by Praashoo7.
+   Class names are prefixed with "cassette-" so they can't clash with the rest of the site. */
+
+/* Tilt: leans 30deg to the right. Change the angle here. */
+.cassette-tilt {
+  display: grid;
+  place-items: center;
+  transform: rotate(30deg);
+  color: #000;
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.cassette-tilt p { margin: 0; }
+
+.cassette-card {
+  width: 300px;
+  height: 200px;
+  background: #252525;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.cassette-ups {
+  display: flex;
+}
+
+.cassette-screw1 {
+  display: flex;
+  color: black;
+  border: 1px solid black;
+  background-color: lightgrey;
+  height: 0.75em;
+  width: 0.75em;
+  margin: 0.5em;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.cassette-screw2 {
+  display: flex;
+  color: black;
+  border: 1px solid black;
+  background-color: lightgrey;
+  height: 0.75em;
+  width: 0.7em;
+  margin-top: 0.5em;
+  margin-left: 15.8em;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.cassette-downs {
+  display: flex;
+}
+
+.cassette-screw3 {
+  display: flex;
+  color: black;
+  border: 1px solid black;
+  background-color: lightgrey;
+  height: 0.75em;
+  width: 0.75em;
+  margin-top: -1.3em;
+  margin-left: 0.5em;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.cassette-screw4 {
+  display: flex;
+  color: black;
+  border: 1px solid black;
+  background-color: lightgrey;
+  height: 0.75em;
+  width: 0.75em;
+  margin-top: -1.3em;
+  margin-left: 16.35em;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.cassette-card1 {
+  width: 230px;
+  height: 115px;
+  margin-top: 0.5em;
+  margin-left: 2.18em;
+  background-color: #FFFDD0;
+  clip-path: polygon(5% 0, 95% 0, 100% 10%, 100% 100%, 100% 100%, 0 100%, 0 100%, 0 10%);
+  border-radius: 5px;
+}
+
+.cassette-line1 {
+  position: relative;
+  width: 200px;
+  height: 1px;
+  background-color: black;
+  top: 1em;
+  left: 0.8em;
+}
+
+.cassette-line2 {
+  position: relative;
+  width: 200px;
+  height: 1px;
+  background-color: black;
+  top: 2em;
+  left: 0.8em;
+}
+
+.cassette-yl {
+  display: flex;
+  width: 228px;
+  height: 50px;
+  background-color: rgb(242, 188, 0);
+  margin-top: 2.5em;
+  margin-left: 0.06em;
+}
+
+.cassette-roll {
+  width: 8em;
+  height: 2em;
+  margin-left: 3em;
+  border-radius: 15px;
+  background-color: #171717;
+  display: flex;
+}
+
+.cassette-tape {
+  width: 3em;
+  height: 1.5em;
+  position: relative;
+  left: 0.9em;
+  background-color: #252525;
+}
+
+.cassette-s_wheel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0.215em;
+  left: 0.15em;
+  width: 1.55em;
+  height: 1.55em;
+  border: 2px dashed #fff;
+  box-shadow: 0 0 0 4.4px #fff;
+  border-radius: 50%;
+  animation: 2s cassette-run infinite linear;
+}
+
+.cassette-window {
+  background-color: white;
+  width: auto;
+  height: 2em;
+}
+
+.cassette-e_wheel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0.215em;
+  left: 1.7em;
+  width: 1.55em;
+  height: 1.55em;
+  border: 2px dashed #fff;
+  box-shadow: 0 0 0 4.4px #fff;
+  border-radius: 50%;
+  animation: 2s cassette-run infinite linear;
+}
+
+.cassette-num {
+  margin-left: 1.5em;
+  align-self: center;
+}
+
+.cassette-or {
+  display: flex;
+  width: 230px;
+  height: 18px;
+  background-color: rgb(241, 90, 37);
+  margin-top: 0.4em;
+  margin-left: 0em;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.cassette-time {
+  font-size: 0.5em;
+}
+
+.cassette-card2_main {
+  filter: drop-shadow(4px 4px 14px rgba(0, 0, 0, 1));
+}
+
+.cassette-card2 {
+  width: 150px;
+  height: 50px;
+  margin-top: 0em;
+  margin-left: 4.6em;
+  background-color: #252525;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+}
+
+.cassette-screw5 {
+  position: relative;
+  display: flex;
+  color: black;
+  border: 1px solid black;
+  background-color: lightgrey;
+  height: 0.75em;
+  width: 0.75em;
+  left: 4.25em;
+  top: -0.5em;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.cassette-c1 {
+  position: relative;
+  width: 0.5em;
+  height: 0.5em;
+  background-color: rgb(190, 190, 190);
+  border-radius: 50%;
+  left: 1.5em;
+  top: 2em;
+}
+
+.cassette-t1 {
+  position: relative;
+  width: 0.5em;
+  height: 0.5em;
+  background-color: rgb(190, 190, 190);
+  border-radius: 2px;
+  left: 3em;
+  top: 1em;
+}
+
+.cassette-t2 {
+  position: relative;
+  width: 0.5em;
+  height: 0.5em;
+  background-color: rgb(190, 190, 190);
+  border-radius: 2px;
+  left: 5.7em;
+  top: -0.2em;
+}
+
+.cassette-c2 {
+  position: relative;
+  width: 0.5em;
+  height: 0.5em;
+  background-color: rgb(190, 190, 190);
+  border-radius: 50%;
+  left: 7.2em;
+  top: -0.2em;
+}
+
+@keyframes cassette-run {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cassette-s_wheel,
+  .cassette-e_wheel { animation: none; }
+}
+
+/* Music section layout: Spotify on the left, cassette on the right. */
+.music-row {
+  display: grid;
+  grid-template-columns: minmax(0, 44rem) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.music-row .spotify-player { width: 100%; }
+
+.music-cassette {
+  display: grid;
+  place-items: center;
+  min-height: 24rem;
+}
+
+@media (max-width: 900px) {
+  .music-row { grid-template-columns: minmax(0, 1fr); }
+  .music-cassette { min-height: 20rem; }
+}
+
+@media (max-width: 480px) {
+  .cassette-tilt { transform: rotate(30deg) scale(.8); }
+  .music-cassette { min-height: 17rem; }
+}
